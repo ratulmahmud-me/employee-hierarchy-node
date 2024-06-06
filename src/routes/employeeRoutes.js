@@ -3,6 +3,6 @@ import { employeeHierarchy } from "../controllers/employeeController";
 
 const router = Router();
 
-router.get("/hierarchy/:id", employeeHierarchy);
+router.get("/hierarchy", employeeHierarchy);
 
 export default router;
