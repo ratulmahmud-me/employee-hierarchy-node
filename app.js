@@ -1,14 +1,17 @@
+import "dotenv/config";
 import express from "express";
-import http, { Server } from "http";
+import http from "http";
 import https from "https";
 import fs from "fs";
 import cors from "cors";
+import { handleRequest } from "./src/middlewares/handleRequest";
+import router from "./src/routes";
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
+// set cors properties 
 const allowList = ['http://localhost:4200'];
 
 app.use(cors({
@@ -16,6 +19,13 @@ app.use(cors({
     origin: allowList
 }));
 
+// set the request handler middleware 
+app.use(handleRequest);
+
+// set the router 
+app.use(router);
+
+// server configuration 
 const startServer = async (mode = process.env.ENVIRONMENT) => {
     let SSLDIR, PORT, HOST, server, protocol;
     switch (mode) {
