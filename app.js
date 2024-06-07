@@ -6,6 +6,7 @@ import fs from "fs";
 import cors from "cors";
 import { handleRequest } from "./src/middlewares/handleRequest";
 import router from "./src/routes";
+import { handleError } from "./src/middlewares/handleError";
 
 const app = express();
 
@@ -24,6 +25,9 @@ app.use(handleRequest);
 
 // set the router 
 app.use(router);
+
+// error handler middleware 
+app.use(handleError);
 
 // server configuration 
 const startServer = async (mode = process.env.ENVIRONMENT) => {

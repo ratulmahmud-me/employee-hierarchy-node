@@ -26,17 +26,18 @@ const generateEmployeeHeirarchy = async () => {
     try {
         const positions = await prisma.position.findMany();
         const employee = [];
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 10000; i++) {
             employee.push({
                 name: faker.person.fullName(),
                 positionId: faker.helpers.arrayElement(positions).id,
                 parentId: i > 0 ? faker.helpers.rangeToNumber({ min: 1, max: i }) : null
             });
         }
-        console.log(employee);
+        // console.log(employee);
         const employeeCreated = await prisma.employee.createMany({
             data: employee
         });
+        console.log("Generated dummy data successfully!");
     } catch (error) {
         console.log("Error generating dummy data:", error);
     }

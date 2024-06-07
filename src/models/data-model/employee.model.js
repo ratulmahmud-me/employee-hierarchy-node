@@ -21,6 +21,7 @@ export const getEmployeeHierarchy = async (id) => {
         employee.children = [];
         employeeMap.set(employee.id, employee);
     });
+    console.log(employeeMap);
 
     let root;
     employeeHierarchy.forEach(employee => {
