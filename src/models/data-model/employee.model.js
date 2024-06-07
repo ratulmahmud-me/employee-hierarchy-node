@@ -9,19 +9,19 @@ export const getEmployeeHierarchy = async (id) => {
         UNION
         SELECT e.id, e.name, e."positionId", e."parentId"
         FROM "Employee" e
-        INNER JOIN employee_cte cte ON cte.id = e."parentId"
+        INNER JOIN employee_cte a ON a.id = e."parentId"
       )
       SELECT e.id, e.name, e."positionId", p.name as "positionName", e."parentId"
       FROM employee_cte e
       JOIN "Position" p ON e."positionId" = p.id;
     `;
-
+    // console.log(employeeHierarchy);
     const employeeMap = new Map();
     employeeHierarchy.forEach(employee => {
         employee.children = [];
         employeeMap.set(employee.id, employee);
     });
-    console.log(employeeMap);
+    // console.log(employeeMap);
 
     let root;
     employeeHierarchy.forEach(employee => {
@@ -30,10 +30,13 @@ export const getEmployeeHierarchy = async (id) => {
             if (parent) {
                 parent.children.push(employee);
             }
+            else {
+                root = employee;
+            }
         } else {
             root = employee;
         }
     });
-
-    return root;
+    //  console.log("ROOT", root);
+    return root.children ?? [];
 }

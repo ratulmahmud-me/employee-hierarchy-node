@@ -46,6 +46,8 @@ const generateEmployeeHeirarchy = async () => {
     }
 }
 
+// to generate the job titles dummy data enable this function
 // await generateEmployeePosition();
 
+// to generate the employee dummy data enable this function.
 await generateEmployeeHeirarchy();

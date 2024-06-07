@@ -23,6 +23,9 @@ model Employee {
   Employee   Employee[] @relation("ParentChildren")
   createdAt  DateTime   @default(now())
   modifiedAt DateTime?  @updatedAt
+
+  @@index([positionId])
+  @@index([parentId])
 }
 
 model Position {
