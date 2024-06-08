@@ -1,3 +1,10 @@
 node_modules
 # Keep environment variables out of version control
 # .env
+
+# Ignore ssl files
+server.crt 
+server.key
+
+#Ignore the test files
+coverage

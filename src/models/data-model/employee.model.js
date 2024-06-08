@@ -37,6 +37,5 @@ export const getEmployeeHierarchy = async (id) => {
             root = employee;
         }
     });
-    //  console.log("ROOT", root);
     return root.children ?? [];
 }

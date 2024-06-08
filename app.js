@@ -56,6 +56,7 @@ const startServer = async (mode = process.env.ENVIRONMENT) => {
     }
     else {
         server = https.createServer(
+            // uncomment if wish to add ssl sertificates and certificates in SSL dir.
             // {
             //     key: fs.readFileSync(`${SSLDIR}/server.key`),
             //     cert: fs.readFileSync(`${SSLDIR}/server.crt`),
@@ -70,3 +71,5 @@ const startServer = async (mode = process.env.ENVIRONMENT) => {
 }
 
 startServer();
+
+export default app;
