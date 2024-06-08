@@ -9,7 +9,7 @@
 3. Set up PostgreSQL and create a database.
 4. Set the database URL in the .env file:
     ```
-    DATABASE_URL="postgresql://user:password@localhost:5432/mydatabase"
+    DATABASE_URL="postgresql://user:password@localhost:5432/mydatabase?schema=public&connection_limit=5000"
     ```
 5. Run migrations:
     ```
@@ -24,6 +24,10 @@
 * Get employee hierarchy: 
 ```
 GET /api/employee/hierarchy?id=1
+```
+* Get employee hierarchy batch wise:
+```
+/api/employee/hierarchy/batch?id=1&batchSize=10000&currentPage=1
 ```
 * Protected endpoint with JWT: 
     - Use Authentication header to send bearer token.
