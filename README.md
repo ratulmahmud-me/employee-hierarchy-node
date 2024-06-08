@@ -16,23 +16,31 @@
 
 ## Usage
 * Get employee hierarchy
-```GET /api/employee/hierarchy?id=1```
+```
+GET /api/employee/hierarchy?id=1
+```
 * Protected endpoint with JWT: 
     - Use Authentication header to send bearer token.
     - Set the SECRET_TOKEN in the .env file.
-    - ```SECRET_TOKEN='[Your Secret]'```
-```GET /api/auth/protected```
+    - ```
+    SECRET_TOKEN='[Your Secret]'
+    ```
+```
+GET /api/auth/protected
+```
 
 ## Testing
 Run unit test:
-```npm test```
+```
+npm test
+```
 
 ## Deployment
 To deploy the application:
 
 1. Ensure the environment variables are set in the production environment.
     * Set the ENVIRONMENT veriable to 'prod' in the .env file.
-    * You can set the SSL certificates as a perameter for https server in app.js file.
+    * You can enable the SSL certificates as a perameter for https server in app.js file. By default it is commented in app.js file.
     ```
     server = https.createServer(
             // uncomment if wish to add ssl sertificates and certificates in SSL dir.
@@ -44,7 +52,9 @@ To deploy the application:
         );
     ```
 2. Use a process manager like PM2 to manage the Node.js application:
-    ```pm2 start app.js --name [app_name]```
+    ```
+    pm2 start app.js --name [app_name]
+    ```
 3. Set up a reverse proxy using Nginx or Apache to handle requests
 
 ## Answers to Assessment Questions
@@ -59,7 +69,7 @@ To deploy the application:
 
     * Implemented structured logging using library winston and winston-daily-rotate-file.
 4. Deployment process and best practices:
-    * ALready discussed in the **Diployment** section above.
+    * Already discussed in the **Diployment** section above.
     * Other options:
         - Use CI/CD pipelines for automated testing and deployment.
         - Containerize the application using Docker for consistent deployment environments.
