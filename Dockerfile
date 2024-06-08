@@ -11,4 +11,4 @@ COPY app.js .
 
 RUN npm install
 
-ENTRYPOINT ["node", "app.js"]
+CMD ["npm", "run", "start"]

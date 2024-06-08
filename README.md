@@ -8,21 +8,27 @@
    npm install
 3. Set up PostgreSQL and create a database.
 4. Set the database URL in the .env file:
-    ```DATABASE_URL="postgresql://user:password@localhost:5432/mydatabase"```
+    ```
+    DATABASE_URL="postgresql://user:password@localhost:5432/mydatabase"
+    ```
 5. Run migrations:
-    ```npx prisma migrate dev --name init```
+    ```
+    npx prisma migrate dev --name init
+    ```
 6. Start the server:
-    ```npm start```
+    ```
+    npm start
+    ```
 
 ## Usage
-* Get employee hierarchy
+* Get employee hierarchy: 
 ```
 GET /api/employee/hierarchy?id=1
 ```
 * Protected endpoint with JWT: 
     - Use Authentication header to send bearer token.
     - Set the SECRET_TOKEN in the .env file.
-    - ```
+    ```
     SECRET_TOKEN='[Your Secret]'
     ```
 ```
