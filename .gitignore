@@ -6,5 +6,11 @@ node_modules
 server.crt 
 server.key
 
-#Ignore the test files
+# Ignore the test files
 coverage
+
+# Ignore logs
+logs
+log/
+*.log
+npm-debug.log*

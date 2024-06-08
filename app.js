@@ -7,6 +7,7 @@ import cors from "cors";
 import { handleRequest } from "./src/middlewares/handleRequest";
 import router from "./src/routes";
 import { handleError } from "./src/middlewares/handleError";
+import { errorLogger } from "./src/middlewares/handleLogger";
 
 const app = express();
 
@@ -25,6 +26,9 @@ app.use(handleRequest);
 
 // set the router 
 app.use(router);
+
+// error logger middleware 
+app.use(errorLogger)
 
 // error handler middleware 
 app.use(handleError);
