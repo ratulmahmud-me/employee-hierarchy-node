@@ -21,6 +21,7 @@
     ```
 
 ## Usage
+
 * Get employee hierarchy: 
 ```
 GET /api/employee/hierarchy?id=1
@@ -37,6 +38,13 @@ GET /api/employee/hierarchy?id=1
     ```
 ```
 GET /api/auth/protected
+```
+
+## Dummy data
+To generate dummy data I have used a library fakerjs. Find the script under faker/generateEmployee.js and modify if needed.
+To generate dummy data run:
+```
+node faker/generateEmployee.js
 ```
 
 ## Testing

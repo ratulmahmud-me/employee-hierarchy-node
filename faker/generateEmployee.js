@@ -9,7 +9,6 @@ const generateEmployeePosition = async () => {
                 name: faker.person.jobTitle()
             })
         }
-        // console.log(position);
         const positionCreated = await prisma.position.createMany({
             data: position
         });
@@ -33,7 +32,6 @@ const generateEmployeeHeirarchy = async () => {
                 parentId: i > 0 ? faker.helpers.rangeToNumber({ min: 1, max: i }) : null
             });
         }
-        // console.log(employee);
         const employeeCreated = await prisma.employee.createMany({
             data: employee
         });
@@ -47,7 +45,7 @@ const generateEmployeeHeirarchy = async () => {
 }
 
 // to generate the job titles dummy data enable this function
-// await generateEmployeePosition();
+await generateEmployeePosition();
 
 // to generate the employee dummy data enable this function.
 await generateEmployeeHeirarchy();

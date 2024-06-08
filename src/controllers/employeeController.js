@@ -22,7 +22,6 @@ export const employeeHierarchy = async (req, res, next) => {
 export const employeeHierarchyBatch = async (req, res, next) => {
     try {
         const data = req.query;
-        // const data = {...req.body, id};
         // validating data 
         const schema = employeeReqModel.getEmployeeHierarchyReqBatch;
         checkValidationSchema(schema, data);
